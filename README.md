@@ -1,2 +1,2 @@
-# Puzzle_Game_Rep
+# Puzzle_Game
 Puzzle go brrr
