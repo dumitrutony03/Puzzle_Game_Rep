@@ -10,9 +10,15 @@ public class Score_Text : MonoBehaviour
     private Text score_Text;
     public int Score;
 
-    private bool EnemyGreatPositioned;
+    public bool EnemyGreatPositioned;
 
     private GameObject fgowt;
+
+    //public coins_Rubys coins_Rubys;
+
+    public GameObject coins;
+    public GameObject rubys;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,11 +41,21 @@ public class Score_Text : MonoBehaviour
             }
         if(EnemyGreatPositioned)
         {
-//            Debug.Log("good positioned");
+            //Debug.Log("good positioned");
             EnemyGreatPositioned = false;
             animator.SetTrigger("PopUp");
+
+            coins.GetComponent<Coins_Rubys>().coins ++;
+            coins.GetComponent<Text>().text = coins.GetComponent<Coins_Rubys>().coins.ToString();
+
             Score ++;
             CheckScore(Score);
+
+            if(Score % 100 == 0 && Score > 0)
+            {
+                rubys.GetComponent<Coins_Rubys>().rubys ++;
+                rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
+            }
         }
     }
     void CheckScore(int Score)

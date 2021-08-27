@@ -8,6 +8,8 @@ TagManager:
   - Enemies
   - MCharacter_Spawner
   - RedWhenNotMatchingRightPuzzlePieces
+  - Coins
+  - Rubys
   layers:
   - Default
   - TransparentFX
