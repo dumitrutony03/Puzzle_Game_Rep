@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MCharacter_Script : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class MCharacter_Script : MonoBehaviour
     private float timeUntileCloseEyes;
 
     private AudioSource audioSource_Switch_Character;
+    
+    private Touch theTouch;
 
     void Awake()
     {
@@ -41,37 +44,45 @@ public class MCharacter_Script : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {   
         if(A_Change == true)
         {
-           // Debug.Log(EYES_GETS_IN.name);
+            Debug.Log(Input.touchCount);
             //if(Input.GetKeyDown(KeyCode.D))
-            if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+            if(Input.touchCount > 0)
             {
-                audioSource_Switch_Character.Play();
+                theTouch = Input.GetTouch(0);
+//              Debug.Log("can change the game character");
+                if(theTouch.phase == TouchPhase.Ended)
+                {
+                    audioSource_Switch_Character.Play();
 
-                A_Change = false;
-                D_Change = true;
+                    A_Change = false;
+                    D_Change = true;
 
-                GETS_In.SetActive(false);
-                GOES_In.SetActive(true);
+                    GETS_In.SetActive(false);
+                    GOES_In.SetActive(true);
+                }
             }
         }
     
         if(D_Change == true)
         {
-//            Debug.Log(EYES_GOES_IN.name);
+            //Debug.Log(EYES_GOES_IN.name);
             //if(Input.GetKeyDown(KeyCode.A))
-            if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+            if(Input.touchCount > 0)
             {
-                audioSource_Switch_Character.Play();
+                theTouch = Input.GetTouch(0);
+                if(theTouch.phase == TouchPhase.Began)
+                {
+                    audioSource_Switch_Character.Play();
 
-                A_Change = true;
-                D_Change = false;
+                    A_Change = true;
+                    D_Change = false;
 
-                GETS_In.SetActive(true);
-                GOES_In.SetActive(false);
+                    GETS_In.SetActive(true);
+                    GOES_In.SetActive(false);
+                }
             }
         }
 
