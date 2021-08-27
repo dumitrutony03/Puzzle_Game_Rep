@@ -33,12 +33,12 @@ public class PuzzleSpawner_Script : MonoBehaviour
         if(timeToExpand_WhenToSpawnPuzzlePiece >= 20f)
         {
             Debug.Log(timesWhenTimeHasBeenExpanded);
-            if(timesWhenTimeHasBeenExpanded < 6) // 6 waves
+            if(timesWhenTimeHasBeenExpanded < 5) // 6 waves
             {
                 timesWhenTimeHasBeenExpanded ++;
 
                 timeToExpand_WhenToSpawnPuzzlePiece = 0f;
-                WhenToSpawnPuzzlePiece -= 0.095f; // max = -0.58f
+                WhenToSpawnPuzzlePiece -= 0.1f; // max = -0.58f
             }
         }
         else
