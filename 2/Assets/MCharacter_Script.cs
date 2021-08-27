@@ -46,7 +46,8 @@ public class MCharacter_Script : MonoBehaviour
         if(A_Change == true)
         {
            // Debug.Log(EYES_GETS_IN.name);
-            if(Input.GetKeyDown(KeyCode.D))
+            //if(Input.GetKeyDown(KeyCode.D))
+            if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
                 audioSource_Switch_Character.Play();
 
@@ -61,7 +62,8 @@ public class MCharacter_Script : MonoBehaviour
         if(D_Change == true)
         {
 //            Debug.Log(EYES_GOES_IN.name);
-            if(Input.GetKeyDown(KeyCode.A))
+            //if(Input.GetKeyDown(KeyCode.A))
+            if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
                 audioSource_Switch_Character.Play();
 
