@@ -23,6 +23,10 @@ public class MainMenu_Script : MonoBehaviour
 
         StartCoroutine(LevelLoading("GamePlay"));
     }
+    public void Shop()
+    {
+        StartCoroutine(ShopLoading("Shop"));
+    }
     public void QuitGame()
     {   
         audioSource.Play();
@@ -31,6 +35,18 @@ public class MainMenu_Script : MonoBehaviour
     }
 
     IEnumerator LevelLoading(string levelName)
+    {
+        audioSource.Play();
+
+        animator.SetTrigger("Gameplay");
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(levelName);
+
+        yield return null;
+    }
+    IEnumerator ShopLoading(string levelName)
     {
         audioSource.Play();
 
