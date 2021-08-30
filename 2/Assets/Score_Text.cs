@@ -59,6 +59,8 @@ public class Score_Text : MonoBehaviour
             {
                 rubys.GetComponent<Coins_Rubys>().rubys ++;
                 rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
+
+                SavePlayer();
             }
         }
     }

@@ -11,7 +11,7 @@ public class Coins_Rubys : MonoBehaviour
 
     void Start()
     {
-        coins = 0;
-        rubys = 0;
+        //coins = 0;
+        //rubys = 0;
     }
 }
