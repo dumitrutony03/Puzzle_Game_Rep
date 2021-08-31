@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MCharacter_Script : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class MCharacter_Script : MonoBehaviour
             {
                 theTouch = Input.GetTouch(0);
 //              Debug.Log("can change the game character");
-                if(theTouch.phase == TouchPhase.Ended)
+                if(theTouch.phase == TouchPhase.Ended && SceneManager.GetSceneByName("Gameplay").isLoaded)
                 {
                     audioSource_Switch_Character.Play();
 
@@ -73,7 +74,7 @@ public class MCharacter_Script : MonoBehaviour
             if(Input.touchCount > 0)
             {
                 theTouch = Input.GetTouch(0);
-                if(theTouch.phase == TouchPhase.Began)
+                if(theTouch.phase == TouchPhase.Began && SceneManager.GetSceneByName("Gameplay").isLoaded)
                 {
                     audioSource_Switch_Character.Play();
 

@@ -91,28 +91,6 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Shadow
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 820
-      y: 203
-      width: 141
-      height: 31
-    spriteID: 51c01424938f92147aa66a64702b6af1
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 735, y: 24}
   - name: Mouth
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -135,28 +113,6 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 549, y: -173}
-  - name: Eyes_Shadow
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 612
-      y: 203
-      width: 200
-      height: 66
-    spriteID: 840a1be59dfa09f459e12145f98c805f
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 538, y: -111}
   - name: Eyes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -300,13 +256,6 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 22
     mosaicPosition: {x: 0, y: 0}
-  - name: Shadow
-    spriteName: Shadow
-    isGroup: 0
-    parentIndex: 1
-    spriteID: 51c01424938f92147aa66a64702b6af1
-    layerID: 18
-    mosaicPosition: {x: 820, y: 203}
   - name: Mouth
     spriteName: Mouth
     isGroup: 0
@@ -321,17 +270,10 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 24
     mosaicPosition: {x: 0, y: 0}
-  - name: Eyes_Shadow
-    spriteName: Eyes_Shadow
-    isGroup: 0
-    parentIndex: 4
-    spriteID: 840a1be59dfa09f459e12145f98c805f
-    layerID: 15
-    mosaicPosition: {x: 612, y: 203}
   - name: Eyes
     spriteName: Eyes
     isGroup: 0
-    parentIndex: 4
+    parentIndex: 3
     spriteID: 15156115141e83047a5a57d11d0f5d60
     layerID: 11
     mosaicPosition: {x: 612, y: 104}
