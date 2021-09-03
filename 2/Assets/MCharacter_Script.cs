@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MCharacter_Script : MonoBehaviour
 {
-    [SerializeField] private GameObject GOES_In;
-    [SerializeField] private GameObject GETS_In;
+    public GameObject GOES_In;
+    public GameObject GETS_In;
 
     private Collider2D Collider2D_GOES_In;
     private Collider2D Collider2D_GETS_In;

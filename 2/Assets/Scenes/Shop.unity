@@ -946,6 +946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MCharacter_Sprite_1: {fileID: 1711765523}
   MCharacter_Sprite_2: {fileID: 194739388}
+  image: {fileID: 0}
 --- !u!212 &194739388 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1362435185437200050, guid: 90fbabc72f1da17439ea1098cc950c9d, type: 3}
