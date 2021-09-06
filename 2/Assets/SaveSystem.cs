@@ -8,7 +8,7 @@ public static class SaveSystem
     // where are saved
 
    // Coins and Rubys throught the game
-   public static void SavePlayer(Score_Text score_Text)
+   /*public static void SavePlayer(Score_Text score_Text)
    {
        BinaryFormatter formatter = new BinaryFormatter();
 
@@ -40,7 +40,8 @@ public static class SaveSystem
             return null;
         }
     }
-    // SpriteColor from shop to the game
+
+   // SpriteColor from shop to the game
    public static void SavePlayer_SpriteColor(Button_CharacterGetsSkin button_CharacterGetsSkin)
    {
        BinaryFormatter formatter = new BinaryFormatter();
@@ -72,5 +73,5 @@ public static class SaveSystem
             Debug.LogError("Save file not found in" + path);
             return null;
         }
-    }
+    }*/
 }

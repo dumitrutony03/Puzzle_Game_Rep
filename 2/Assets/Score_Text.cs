@@ -16,12 +16,12 @@ public class Score_Text : MonoBehaviour
 
     //public coins_Rubys coins_Rubys;
 
-    public GameObject coins;
-    public GameObject rubys;
+    //public GameObject coins;
+   // public GameObject rubys;
 
     void Start()
     {
-        LoadPlayer();
+        //LoadPlayer();
 
         animator = GetComponent<Animator>();
 
@@ -47,21 +47,21 @@ public class Score_Text : MonoBehaviour
             EnemyGreatPositioned = false;
             animator.SetTrigger("PopUp");
 
-            coins.GetComponent<Coins_Rubys>().coins ++;
-            coins.GetComponent<Text>().text = coins.GetComponent<Coins_Rubys>().coins.ToString();
+            //coins.GetComponent<Coins_Rubys>().coins ++;
+            //coins.GetComponent<Text>().text = coins.GetComponent<Coins_Rubys>().coins.ToString();
 
             Score ++;
             CheckScore(Score);
 
-            SavePlayer();
+            //SavePlayer();
 
-            if(Score % 100 == 0 && Score > 0)
+            /*if(Score % 100 == 0 && Score > 0)
             {
                 rubys.GetComponent<Coins_Rubys>().rubys ++;
                 rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
 
-                SavePlayer();
-            }
+                //SavePlayer();
+            }*/
         }
     }
     void CheckScore(int Score)
@@ -76,7 +76,7 @@ public class Score_Text : MonoBehaviour
             score_Text.text = Score.ToString() + " / ".ToString() + 100.ToString();
     }
 
-    public void SavePlayer()
+    /*public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
     }
@@ -89,5 +89,5 @@ public class Score_Text : MonoBehaviour
 
         rubys.GetComponent<Coins_Rubys>().rubys = data.Score_Rubys;
         rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
-    }
+    }*/
 }

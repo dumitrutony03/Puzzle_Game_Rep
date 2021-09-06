@@ -94,7 +94,7 @@ public class R_MM_Script : MonoBehaviour, IPointerEnterHandler
     {
         audioSource.Play();
         yield return new WaitForSeconds(0.25f);
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene("Gameplay");
     }
     IEnumerator Play_SFX_MAINMENU()
     {

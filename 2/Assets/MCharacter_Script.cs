@@ -25,6 +25,8 @@ public class MCharacter_Script : MonoBehaviour
     
     private Touch theTouch;
 
+    public Button_CharacterGetsSkin button_CharacterGetsSkin;
+
     void Awake()
     {
         D_Change = true;
@@ -43,6 +45,11 @@ public class MCharacter_Script : MonoBehaviour
 
         audioSource_Switch_Character = GetComponent<AudioSource>();
     }
+
+    /*void Start()
+    {
+        StartCoroutine(Load_LoadPlayer_SpriteColor());
+    }*/
 
     void Update()
     {   
@@ -118,12 +125,10 @@ public class MCharacter_Script : MonoBehaviour
             }
         }
     }
-    /*void OnTriggerEnter2D(Collider2D collider)
+    /*IEnumerator Load_LoadPlayer_SpriteColor()
     {
-        Debug.Log(collider.gameObject.tag);
-        if(collider.gameObject.tag == "Enemies")
-        {
-            Debug.Log("yeas");
-        }
+        yield return new WaitForSeconds(3f);
+
+        button_CharacterGetsSkin.LoadPlayer_SpriteColor();
     }*/
 }

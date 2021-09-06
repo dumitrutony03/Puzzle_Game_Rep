@@ -23,9 +23,9 @@ public class MainMenu_Script : MonoBehaviour
         // sound of the button clicked
        // audioSource.Play();
 
-        StartCoroutine(LevelLoading("Shop")); // Gameplay
+        StartCoroutine(LevelLoading("Gameplay")); // Gameplay
     }
-    public void StartGame() // from Shop to Gameplay
+    /*public void StartGame() // from Shop to Gameplay
     {
         // sound of the button clicked
         // audioSource.Play();
@@ -36,8 +36,8 @@ public class MainMenu_Script : MonoBehaviour
     }
     public void Shop() // shop button is DISABLE
     {
-        StartCoroutine(ShopLoading("Shop"));
-    }
+        StartCoroutine(ShopLoading("Gameplay"));
+    }*/
     public void QuitGame()
     {   
         audioSource.Play();
