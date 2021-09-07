@@ -15,6 +15,7 @@ public class Score_Text : MonoBehaviour
     private GameObject fgowt;
 
     public GameObject[] TextPopUp;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -40,7 +41,10 @@ public class Score_Text : MonoBehaviour
         {
 
             if(Score % 5 == 0 && Score != 0)            
-                StartCoroutine(Text_PopUp());
+                {
+                    StartCoroutine(Text_PopUp());
+                    audioSource.Play();
+                }
 
             EnemyGreatPositioned = false;   
 
