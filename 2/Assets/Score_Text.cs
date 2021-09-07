@@ -14,15 +14,10 @@ public class Score_Text : MonoBehaviour
 
     private GameObject fgowt;
 
-    //public coins_Rubys coins_Rubys;
-
-    //public GameObject coins;
-   // public GameObject rubys;
+    public GameObject[] TextPopUp;
 
     void Start()
     {
-        //LoadPlayer();
-
         animator = GetComponent<Animator>();
 
         EnemyGreatPositioned = false;
@@ -43,51 +38,21 @@ public class Score_Text : MonoBehaviour
             }
         if(EnemyGreatPositioned)
         {
-            //Debug.Log("good positioned");
-            EnemyGreatPositioned = false;
-            animator.SetTrigger("PopUp");
 
-            //coins.GetComponent<Coins_Rubys>().coins ++;
-            //coins.GetComponent<Text>().text = coins.GetComponent<Coins_Rubys>().coins.ToString();
+            if(Score % 5 == 0 && Score != 0)            
+                StartCoroutine(Text_PopUp());
+
+            EnemyGreatPositioned = false;   
 
             Score ++;
-            CheckScore(Score);
-
-            //SavePlayer();
-
-            /*if(Score % 100 == 0 && Score > 0)
-            {
-                rubys.GetComponent<Coins_Rubys>().rubys ++;
-                rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
-
-                //SavePlayer();
-            }*/
         }
     }
-    void CheckScore(int Score)
+    IEnumerator Text_PopUp()
     {
-        if(Score <= 10)
-            score_Text.text = Score.ToString() + " / ".ToString() + 10.ToString();
-        if(Score >= 10 && Score <= 25)
-            score_Text.text = Score.ToString() + " / ".ToString() + 25.ToString();
-        if(Score >= 25 && Score <= 50)
-            score_Text.text = Score.ToString() + " / ".ToString() + 50.ToString();
-        if(Score >= 50 && Score <= 100)
-            score_Text.text = Score.ToString() + " / ".ToString() + 100.ToString();
+        int rand = Random.Range(0, 5);
+
+        TextPopUp[rand].SetActive(true);
+        yield return new WaitForSeconds(1f);
+        TextPopUp[rand].SetActive(false);
     }
-
-    /*public void SavePlayer()
-    {
-        SaveSystem.SavePlayer(this);
-    }
-    public void LoadPlayer()
-    {
-        PlayerData data = SaveSystem.LoadPlayer();
-
-        coins.GetComponent<Coins_Rubys>().coins = data.Score_Coins;
-        coins.GetComponent<Text>().text = coins.GetComponent<Coins_Rubys>().coins.ToString();
-
-        rubys.GetComponent<Coins_Rubys>().rubys = data.Score_Rubys;
-        rubys.GetComponent<Text>().text = rubys.GetComponent<Coins_Rubys>().rubys.ToString();
-    }*/
 }
