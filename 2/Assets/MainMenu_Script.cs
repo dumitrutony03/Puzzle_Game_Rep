@@ -11,7 +11,6 @@ public class MainMenu_Script : MonoBehaviour
     void Awake()
     {
         // sound of the button clicked
-
        audioSource = GetComponent<AudioSource>();
     }
     public void StartGame_() // from mainMenu to Shop

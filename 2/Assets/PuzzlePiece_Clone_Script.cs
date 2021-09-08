@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PuzzlePiece_Clone_Script : MonoBehaviour
 {
@@ -77,6 +76,7 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
 
                 Destroy(gameObject, 0.0001f);
                 Destroy(CanvasPF, 3.5f);
+
                 //Destroy(CanvasPF, 0.5f);
             }
             
@@ -114,6 +114,7 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
 
                 Destroy(gameObject, 0.0001f);
                 Destroy(CanvasPF, 3.5f);
+
                 //Destroy(CanvasPF, 0.5f);
             }
         }
@@ -127,7 +128,7 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
         }
         Canvas_PF_Animator.SetTrigger("RedScreen"); // DeadScreen
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
     }
    IEnumerator goodSound_SFX()
    {

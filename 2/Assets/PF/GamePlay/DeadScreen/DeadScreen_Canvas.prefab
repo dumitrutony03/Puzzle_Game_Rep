@@ -128,7 +128,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
@@ -151,7 +151,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2977349251893978686
 MonoBehaviour:
@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2977349251893978684}
+  GameOverCanvas: {fileID: 2144790971298907881, guid: ecee56279d9aedd4983399f756bf01c4, type: 3}
+  puzzleEnemiesSpawner: {fileID: 8063493842534116231, guid: e135c1d00f6c9ef42a6fdb0166c98f39, type: 3}
 --- !u!82 &2061728041278433667
 AudioSource:
   m_ObjectHideFlags: 0

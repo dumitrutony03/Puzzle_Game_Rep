@@ -1,27 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+// REMOVABLE !!!!!!!!!
 
 public class RedScreen : MonoBehaviour
 {
     public Animator animator;
-    private PuzzlePiece_Clone_Script puzzlePiece_Clone_Script;
-    private GameObject fgowt;
-    // Start is called before the first frame update
-    void Start()
+    public void GameEnded()
     {
-        //fgowt = GameObject.FindGameObjectWithTag("Enemies");
+        
     }
-
-    // Update is called once per frame
-    void Update()
+    /*public GameObject GameOverCanvas;
+    public GameObject puzzleEnemiesSpawner;
+    public void GameOverCanvas_Panel()
     {
-       
+        //Debug.Log("canvas can be alive");
+        GameObject canvas = Instantiate(GameOverCanvas, new Vector3(-5.24f, -1.18f, 89.94458f), Quaternion.identity);
+        canvas.SetActive(true);
+        StartCoroutine(StopGamePlay());
     }
-    public void RedScreenAnimation()
+    IEnumerator StopGamePlay()
     {
-        SceneManager.LoadScene("GameOver");
-        //Debug.Log("can load go scene");
-    }
+        puzzleEnemiesSpawner.SetActive(false);
+        Time.timeScale = 0f;
+        yield return null;
+    }*/
 }
