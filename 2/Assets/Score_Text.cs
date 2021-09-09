@@ -7,7 +7,7 @@ public class Score_Text : MonoBehaviour
 {
     private Animator animator;
 
-    private Text score_Text;
+    //private Text score_Text;
     public int Score;
 
     public bool EnemyGreatPositioned;
@@ -23,7 +23,7 @@ public class Score_Text : MonoBehaviour
 
         EnemyGreatPositioned = false;
 
-        score_Text = GetComponent<Text>();
+        //score_Text = GetComponent<Text>();
         Score = 0;
     }
 

@@ -25,6 +25,13 @@ public class MCharacter_Script : MonoBehaviour
     
     private Touch theTouch;
 
+    // For the GameOver_Canvas
+    private GameObject fgowt;
+    private bool wrongCharacterMatching;
+
+    public GameObject puzzleSpawner_active;
+    public GameObject GameOver_Canvas;
+
     void Awake()
     {
         D_Change = true;
@@ -42,10 +49,33 @@ public class MCharacter_Script : MonoBehaviour
         Collider2D_GETS_In = GETS_In.GetComponent<Collider2D>();
 
         audioSource_Switch_Character = GetComponent<AudioSource>();
+    
+        wrongCharacterMatching = false;
     }
 
     void Update()
     {   
+        fgowt = GameObject.FindGameObjectWithTag("Enemies");
+        if(fgowt != null)
+        {
+            if(fgowt.GetComponent<PuzzlePiece_Clone_Script>().WrongTouched)
+            {
+                wrongCharacterMatching = true;
+                //Time.timeScale = 0f;
+            }
+        }
+        if(wrongCharacterMatching)
+        {
+            fgowt = GameObject.FindGameObjectWithTag("Enemies");
+            if(fgowt != null)
+            {
+                Destroy(fgowt);
+            }
+            puzzleSpawner_active.SetActive(false);
+            StartCoroutine(GameOver_Canvas_Appear());
+            //GameOver_Canvas.SetActive(true);
+        }
+
         if(A_Change == true)
         {
             Debug.Log(Input.touchCount);
@@ -53,7 +83,7 @@ public class MCharacter_Script : MonoBehaviour
             if(Input.touchCount > 0)
             {
                 theTouch = Input.GetTouch(0);
-//              Debug.Log("can change the game character");
+            //Debug.Log("can change the game character");
                 if(theTouch.phase == TouchPhase.Ended && SceneManager.GetSceneByName("Gameplay").isLoaded)
                 {
                     audioSource_Switch_Character.Play();
@@ -117,5 +147,12 @@ public class MCharacter_Script : MonoBehaviour
                 timeUntileCloseEyes += Time.fixedDeltaTime;
             }
         }
+    }
+    IEnumerator GameOver_Canvas_Appear()
+    {
+        yield return new WaitForSeconds(2.8f);
+
+        GameOver_Canvas.SetActive(true);
+        wrongCharacterMatching = false;
     }
 }

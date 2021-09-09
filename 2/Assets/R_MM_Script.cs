@@ -14,7 +14,8 @@ public class R_MM_Script : MonoBehaviour, IPointerEnterHandler
     private bool OverRestartButton;
     private bool OverMainMenuButton;
 
-    public AudioSource audioSource;
+    public GameObject audioSource_GO;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class R_MM_Script : MonoBehaviour, IPointerEnterHandler
         OverRestartButton = false;
         OverMainMenuButton = false;
 
-        audioSource = GetComponent<AudioSource>();
+        audioSource = audioSource_GO.GetComponent<AudioSource>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

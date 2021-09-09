@@ -224,9 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11d7af4d3aed4741b8c3b30ae695230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2977349251893978684}
-  GameOverCanvas: {fileID: 2144790971298907881, guid: ecee56279d9aedd4983399f756bf01c4, type: 3}
-  puzzleEnemiesSpawner: {fileID: 8063493842534116231, guid: e135c1d00f6c9ef42a6fdb0166c98f39, type: 3}
 --- !u!82 &2061728041278433667
 AudioSource:
   m_ObjectHideFlags: 0

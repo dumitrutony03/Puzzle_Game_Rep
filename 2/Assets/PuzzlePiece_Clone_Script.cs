@@ -27,8 +27,9 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
         WrongTouched = false;
 
         // Animation for Canvas
-        CanvasPF = Instantiate(Canvas, new Vector2(0f, 0f), Quaternion.identity);
-        Canvas_PF_Animator = CanvasPF.GetComponent<Animator>();
+        
+        //CanvasPF = Instantiate(Canvas, new Vector2(0f, 0f), Quaternion.identity); // DeadScreen_Canvas GameObject
+        //Canvas_PF_Animator = CanvasPF.GetComponent<Animator>(); // DeadScreen_Canvas animator
     }
     void Update()
     {
@@ -51,7 +52,7 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
                 // PARTICLES
                 GameObject gMP = Instantiate(goodMatchingParticles, collider2D_PuzzlePiece.transform.position + new Vector3(0f, 1.5f, 0f), Quaternion.identity);
                 gMP.SetActive(true);
-                Destroy(gMP, 1F);
+                Destroy(gMP, 1f);
 
 
                 // GOOD POSITIONED SFX SOUND
@@ -63,21 +64,22 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
 
                 Destroy(gameObject, 0.00001f);
 
-                Destroy(CanvasPF);
+                //Destroy(CanvasPF);
             }
             if(mCharacter_Script.A_Change)
             {
                 // WRONG POSITIONED
                 WrongTouched = true;
 
+                CanvasPF = Instantiate(Canvas, new Vector2(0f, 0f), Quaternion.identity); // DeadScreen_Canvas GameObject
+                Canvas_PF_Animator = CanvasPF.GetComponent<Animator>(); // DeadScreen_Canvas animator
+
                 CanvasPF.GetComponent<AudioSource>().Play();
 
                 StartCoroutine(RedScreenAnimationTriggered("GameOver", WrongTouched)); // dead animation and transition to the gameover Scene
 
                 Destroy(gameObject, 0.0001f);
-                Destroy(CanvasPF, 3.5f);
-
-                //Destroy(CanvasPF, 0.5f);
+                //Destroy(CanvasPF, 3.5f);
             }
             
         }
@@ -100,7 +102,7 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
 
                 Destroy(gameObject, 0.00001f);
 
-                Destroy(CanvasPF);
+                //Destroy(CanvasPF);
             }
             else
             {
@@ -108,12 +110,15 @@ public class PuzzlePiece_Clone_Script : MonoBehaviour
 
                 WrongTouched = true;
 
+                CanvasPF = Instantiate(Canvas, new Vector2(0f, 0f), Quaternion.identity); // DeadScreen_Canvas GameObject
+                Canvas_PF_Animator = CanvasPF.GetComponent<Animator>(); // DeadScreen_Canvas animator
+
                 CanvasPF.GetComponent<AudioSource>().Play();
 
                 StartCoroutine(RedScreenAnimationTriggered("GameOver", WrongTouched)); // dead animation and transition to the gameover Scene
 
                 Destroy(gameObject, 0.0001f);
-                Destroy(CanvasPF, 3.5f);
+                //Destroy(CanvasPF, 3.5f);
 
                 //Destroy(CanvasPF, 0.5f);
             }
