@@ -2,13 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
-public class Unity_Monetization : MonoBehaviour
+public class Unity_Monetization : MonoBehaviour, IUnityAdsInitializationListener
 {
-    string AndroidGooglePlay_ID = "4301311";
-    bool TestMode = true;
+    [SerializeField] string _androidGameId;
+    [SerializeField] string _iOsGameId;
+    [SerializeField] bool _testMode = false;
+    [SerializeField] bool _enablePerPlacementMode = false;
+    private string _gameId;
 
     void Awake()
     {
-        Advertisement.Initialize(AndroidGooglePlay_ID, TestMode);
+        InitializeAds();
+    }
+
+    public void InitializeAds()
+    {
+        _gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
+            ? _iOsGameId
+            : _androidGameId;
+        Advertisement.Initialize(_gameId, _testMode, _enablePerPlacementMode, this);
+        //Debug.Log("ads initialized");
+    }
+
+    public void OnInitializationComplete()
+    {
+        Debug.Log("Unity Ads initialization complete.");
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 }
+
