@@ -30,8 +30,11 @@ public class MCharacter_Script : MonoBehaviour
     private bool wrongCharacterMatching;
 
     public GameObject puzzleSpawner_active;
-    public GameObject GameOver_Canvas;
+    public GameObject musicOfTheGame;
+    public GameObject END_musicOfTheGame;
+    public GameObject GameOver_Canvas;  
 
+    public RewardedAdsButton rewardedAdsButton;
     void Awake()
     {
         D_Change = true;
@@ -72,10 +75,27 @@ public class MCharacter_Script : MonoBehaviour
                 Destroy(fgowt);
             }
             puzzleSpawner_active.SetActive(false);
+            musicOfTheGame.SetActive(false);
+
             StartCoroutine(GameOver_Canvas_Appear());
+
             //GameOver_Canvas.SetActive(true);
         }
+        if(rewardedAdsButton.AD_SEEN) // rewarder video started
+        {
+            END_musicOfTheGame.SetActive(false); // end_game music off
+        }
+        if(rewardedAdsButton.playerCanGetTheReward && !rewardedAdsButton.AD_SEEN)
+        {
+            wrongCharacterMatching = false;
+            rewardedAdsButton.playerCanGetTheReward = false;
 
+            puzzleSpawner_active.SetActive(true);
+            musicOfTheGame.SetActive(true);
+
+            GameOver_Canvas.SetActive(false); // ad canvas disappear
+
+        }
         if(A_Change == true)
         {
             Debug.Log(Input.touchCount);
@@ -154,5 +174,9 @@ public class MCharacter_Script : MonoBehaviour
 
         GameOver_Canvas.SetActive(true);
         wrongCharacterMatching = false;
+
+        yield return new WaitForSeconds(0.5f);
+        END_musicOfTheGame.SetActive(true);
+
     }
 }

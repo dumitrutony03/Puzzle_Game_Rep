@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -8,6 +10,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     string _adUnitId;
     public Unity_Monetization unity_Monetization;
 
+    public bool AD_SEEN;
+    public bool playerCanGetTheReward;
+    public GameObject Canvas_AD_BUTTON;
+
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
@@ -16,6 +22,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             : _androidAdUnitId;*/
 
         unity_Monetization.InitializeAds();
+
+        AD_SEEN = false; // ad not seen
+        playerCanGetTheReward = false; // check if the player has seen at least 5 seconds of the ad
     }
 
         /*public void InitializeAds()
@@ -41,42 +50,74 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
-        Advertisement.Load(_adUnitId, this);
+        Debug.Log("Loading Ad: " + "Rewarded_Android");
+        Advertisement.Load("Rewarded_Android", this);
     }
 
     // Show the loaded content in the Ad Unit: 
     public void ShowAd()
     {
         // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
+        Debug.Log("Showing Ad: " + "Rewarded_Android");
         Advertisement.Show("Rewarded_Android", this);//_adUnitId"", this);
+        AD_SEEN = true;
+
     }
 
     // Implement Load Listener and Show Listener interface methods:  
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         // Optionally execute code if the Ad Unit successfully loads content.
+        AD_SEEN = false; // managed to see the ad
+        Debug.Log("ad seen");
     }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
+        StartCoroutine(AD_AGAIN());
+
         Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
+
+        AD_SEEN = false;
         // Optionally execite code if the Ad Unit fails to load, such as attempting to try again.
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
     {
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
+
+        AD_SEEN = false;
+        StartCoroutine(AD_AGAIN());
+
         // Optionally execite code if the Ad Unit fails to show, such as loading another ad.
     }
 
     public void OnUnityAdsShowStart(string adUnitId) {
+        StartCoroutine(AdRightSeen());
      }
-    public void OnUnityAdsShowClick(string adUnitId) { }
+    public void OnUnityAdsShowClick(string adUnitId) { 
+        Debug.Log("ad clicked");
+    }
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) {
-        Debug.Log(showCompletionState);
+        Debug.Log("ad is shown completely " + showCompletionState);
      }
+    IEnumerator AD_AGAIN()
+    {
+        unity_Monetization.InitializeAds();
+
+        playerCanGetTheReward = false;
+        Canvas_AD_BUTTON.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+
+        Canvas_AD_BUTTON.SetActive(true);
+    }
+    IEnumerator AdRightSeen()
+    {
+        yield return new WaitForSeconds(6f);
+        playerCanGetTheReward = true;
+        AD_SEEN = false; // ad seen 
+    }
 }
 /*using UnityEngine;
 using UnityEngine.UI;

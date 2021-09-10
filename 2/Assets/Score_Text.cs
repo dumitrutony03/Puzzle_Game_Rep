@@ -17,6 +17,8 @@ public class Score_Text : MonoBehaviour
     public GameObject[] TextPopUp;
     public AudioSource audioSource;
 
+    public Text text_Score;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,6 +31,7 @@ public class Score_Text : MonoBehaviour
 
     void Update()
     {
+        text_Score.text = Score.ToString();
         fgowt = GameObject.FindGameObjectWithTag("Enemies");
         if(fgowt != null)
             {
