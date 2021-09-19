@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -14,14 +14,14 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public bool playerCanGetTheReward;
     public GameObject Canvas_AD_BUTTON;
 
-    void Awake()
+    /*void Awake()
     {
         // Get the Ad Unit ID for the current platform:
-        /*_adUnitId = "4301311";(Application.platform == RuntimePlatform.IPhonePlayer)
+        _adUnitId = "4301311";(Application.platform == RuntimePlatform.IPhonePlayer)
             ? _iOsAdUnitId
-            : _androidAdUnitId;*/
+            : _androidAdUnitId;
 
-        unity_Monetization.InitializeAds();
+        //unity_Monetization.InitializeAds();
 
         AD_SEEN = false; // ad not seen
         playerCanGetTheReward = false; // check if the player has seen at least 5 seconds of the ad
@@ -45,7 +45,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
         }
-        */
+        
     // Load content to the Ad Unit:
     public void LoadAd()
     {
@@ -118,7 +118,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         playerCanGetTheReward = true;
         AD_SEEN = false; // ad seen 
     }
-}
+    
+}*/
 /*using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;

@@ -33,8 +33,6 @@ public class MCharacter_Script : MonoBehaviour
     public GameObject musicOfTheGame;
     public GameObject END_musicOfTheGame;
     public GameObject GameOver_Canvas;  
-
-    public RewardedAdsButton rewardedAdsButton;
     void Awake()
     {
         D_Change = true;
@@ -81,7 +79,7 @@ public class MCharacter_Script : MonoBehaviour
 
             //GameOver_Canvas.SetActive(true);
         }
-        if(rewardedAdsButton.AD_SEEN) // rewarder video started
+        /*if(rewardedAdsButton.AD_SEEN) // rewarder video started
         {
             END_musicOfTheGame.SetActive(false); // end_game music off
         }
@@ -95,7 +93,8 @@ public class MCharacter_Script : MonoBehaviour
 
             GameOver_Canvas.SetActive(false); // ad canvas disappear
 
-        }
+        }*/
+
         if(A_Change == true)
         {
             Debug.Log(Input.touchCount);

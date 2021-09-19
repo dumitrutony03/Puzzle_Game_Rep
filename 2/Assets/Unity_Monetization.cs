@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -54,5 +54,5 @@ public class Unity_Monetization : MonoBehaviour, IUnityAdsInitializationListener
         initialized_ads = true;
         Debug.Log("InitializeAds_Force is true " + initialized_ads);
     }
-}
+}*/
 
